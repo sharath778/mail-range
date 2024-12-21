@@ -5,7 +5,12 @@ import { ToastContainer} from 'react-toastify';
 import {Layout , Landing, Login, Signup , Dashboard, History, Reports, Profile, Settings,Help, NoPage, EmailBody, EmailList, SendEmailConfiguration} from './pages/index.js';
 import { LinkContext } from './context/LinkContext.js';
 function App() {
-  const [content, setContent]= useState('dashboard')
+  const [content, setContent]= useState('dashboard');
+  const token = localStorage.getItem('token');
+
+  // Check if the token exists and assign true or false to isLoggedIn
+  const isLoggedIn = token !== null && token !== '';
+
   return (
     <>
       <ToastContainer/>
@@ -16,15 +21,15 @@ function App() {
               <Route index element={<Landing />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/dashboard/history" element={<History/>} />
-              <Route path="/dashboard/reports" element={<Reports/>} />
-              <Route path="/profile" element={<Profile/>} />
-              <Route path="/settings" element={<Settings/>} />
-              <Route path="/help" element={<Help/>} />
-              <Route path="/dashboard/send-email-configurations" element={<SendEmailConfiguration/>} />
-              <Route path="/dashboard/email-list" element={<EmailList/>} />
-              <Route path="/dashboard/email-body" element={<EmailBody/>} />
+              <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Landing/>} />
+              <Route path="/dashboard/history" element={isLoggedIn ? <History /> : <Landing />} />
+              <Route path="/dashboard/reports" element={isLoggedIn ? <Reports /> : <Landing />} />
+              <Route path="/profile" element={isLoggedIn ? <Profile /> : <Landing />} />
+              <Route path="/settings" element={isLoggedIn ? <Settings /> : <Landing />} />
+              <Route path="/help" element={isLoggedIn ? <Help /> : <Landing />} />
+              <Route path="/dashboard/send-email-configurations" element={isLoggedIn ? <SendEmailConfiguration /> : <Landing />} />
+              <Route path="/dashboard/email-list" element={isLoggedIn ? <EmailList /> : <Landing />} />
+              <Route path="/dashboard/email-body" element={isLoggedIn ? <EmailBody /> : <Landing />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
