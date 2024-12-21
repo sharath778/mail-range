@@ -1,0 +1,82 @@
+.sidebar{
+    background-color: #1f263e;
+    min-height: 100vh;
+    color: white;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    padding: 4rem 0;
+    z-index: 9;
+}
+.sidebar>div>ul{
+    width: 20%;
+    
+}
+.sidebar >div > p{
+    padding: 0 1rem ;
+    color: #64748b;
+    font-weight: 500;
+}
+.sidebar >div> ul > li{
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    justify-content: start;
+    align-items: center;
+}
+
+.dropdown >li{
+  padding: 1rem 1rem;
+  cursor: pointer;
+}
+.active{
+    background-color: #64748b1f;
+    border-left: 4px solid #3b82f6;
+}
+.sidebar >div> ul > li:hover{
+    background-color: #64748b1f;
+}
+.drop-list:hover{
+    background-color: #64748b1f;
+}
+.sidebar>.icon{
+    display: none;
+}
+
+@media  screen and (max-width:770px) {
+    .sidebar{
+        min-width: 100vw;
+        min-height: auto;
+        position: relative;
+        display: inline-block;
+        padding: 0 0;
+        z-index: 100;
+
+    }
+    .sidebar>div>ul{
+        width: 100%;
+        
+    }
+    .active{
+        border-left: none;
+        border-bottom: 4px solid #3b82f6;
+    }
+    .sidebar >div> ul > li{
+        justify-content: start;
+    }
+    .nav-menu{
+        display: none;
+    }
+    .sidebar>.icon{
+        display: block;
+        padding: 1rem;
+    }
+
+    .responsive .nav-menu{
+        display: block;
+        min-height: 100vh;
+    }
+}
