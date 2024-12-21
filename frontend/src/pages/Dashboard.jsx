@@ -18,7 +18,7 @@ const Dashboard = () => {
   // Fetch existing emails from the server
   const fetchMails = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/mail/all", {}, {
+      const response = await axios.post("/api/mail/all", {}, {
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token'),
         }
@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   const fetchMailBodies = async ()=>{
     try {
-      const response = await axios.post("http://localhost:5000/api/mail/all-emailbody", {}, {
+      const response = await axios.post("/api/mail/all-emailbody", {}, {
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
@@ -65,7 +65,7 @@ const Dashboard = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/mail/add-mails",
+      const response = await axios.post("/api/mail/add-mails",
         { emails: emailArray },
         {
           headers: {
@@ -100,7 +100,7 @@ const Dashboard = () => {
   // Function to handle email deletion
   const handleDeleteMail = async (id) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/mail/delete/${id}`, {}, {
+      const response = await axios.post(`/api/mail/delete/${id}`, {}, {
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token'),
         }
@@ -123,7 +123,7 @@ const Dashboard = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/mail/send`,
+      const response = await axios.post(`/api/mail/send`,
         { emailId: selectedEmail},
         {
           headers: {

@@ -22,7 +22,7 @@ const SendEmailConfiguration = () => {
     const getSenderMails = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/mail/all-sendermails",{},
+                "/api/mail/all-sendermails",{},
                 {
                     headers: {
                         "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -55,7 +55,7 @@ const SendEmailConfiguration = () => {
 
             // Axios POST request
             const response = await axios.post(
-                "http://localhost:5000/api/mail/add-sendermails",
+                "/api/mail/add-sendermails",
                 {
                     userSenderEmail:email,
                     userSenderPassword:password,
@@ -96,7 +96,7 @@ const SendEmailConfiguration = () => {
     const deleteMail = async (id)=>{
 
         try{
-            const response = await axios.delete(`http://localhost:5000/api/mail/delete-sendermails/${id}`,
+            const response = await axios.delete(`/api/mail/delete-sendermails/${id}`,
                 {
                     headers: {
                         "Authorization": "Bearer " + localStorage.getItem("token"),

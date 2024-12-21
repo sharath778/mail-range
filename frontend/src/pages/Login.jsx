@@ -16,7 +16,7 @@ const Login = () => {
         setIsLoading(true);
         try {
             // Send POST request to login API
-            const response = await axios.post("http://localhost:5000/api/users/login", {
+            const response = await axios.post("/api/users/login", {
                 email,
                 password,
             });
